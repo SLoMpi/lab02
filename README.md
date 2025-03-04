@@ -61,6 +61,8 @@ git config --global user.email ${GITHUB_EMAIL}
 ```bash
 mkdir -p projects/lab02 && cd projects/lab02
 git init
+
+#Переинициализирован существующий репозиторий Git в /Users/vladhodorovskij/SLoMpi/workspace/projects/lab02/.git/
 ```
 
 Добавляем удаленный репозиторий и создает начальный файл `README.md`:
@@ -69,17 +71,17 @@ git init
 git remote add origin https://github.com/${GITHUB_USERNAME}/lab02.git
 git add README.md
 git commit -m "added README.md"
--[master 4d3dd1d] added README.md
+#[master 4d3dd1d] added README.md
 git push origin master
 
-Перечисление объектов: 5, готово.
-Подсчет объектов: 100% (5/5), готово.
-При сжатии изменений используется до 8 потоков
-Сжатие объектов: 100% (2/2), готово.
-Запись объектов: 100% (3/3), 2.23 КиБ | 2.23 МиБ/с, готово.
-Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
-To https://github.com/SLoMpi/lab02.git
-   d25dc35..4d3dd1d  master -> master
+#Перечисление объектов: 5, готово.
+#Подсчет объектов: 100% (5/5), готово.
+#При сжатии изменений используется до 8 потоков
+#Сжатие объектов: 100% (2/2), готово.
+#Запись объектов: 100% (3/3), 2.23 КиБ | 2.23 МиБ/с, готово.
+#Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+#To https://github.com/SLoMpi/lab02.git
+#   d25dc35..4d3dd1d  master -> master
 ```
 
 - Если репозиторий уже существует, команда `git remote add` вызовет ошибку, но это не мешает процессу.
@@ -160,9 +162,66 @@ nano README.md
 
 ```bash
 git status
-git add .
+
+#Текущая ветка: master
+#Изменения, которые не в индексе для коммита:
+#  (используйте «git add <файл>...», чтобы добавить файл в индекс)
+#  (используйте «git restore <файл>...», чтобы отменить изменения в рабочем каталоге)
+#	изменено:      README.md
+#
+#Неотслеживаемые файлы:
+#  (используйте «git add <файл>...», чтобы добавить в то, что будет включено в коммит)
+#	.DS_Store
+#	examples/
+#	include/
+#	reports/
+#	sources/
+#	tasks/
+#
+#индекс пуст (используйте «git add» и/или «git commit -a»)
+
+git add *
+
+#warning: добавление встроенного git репозитория: tasks/lab02
+#hint: You've added another git repository inside your current repository.
+#hint: Clones of the outer repository will not contain the contents of
+#hint: the embedded repository and will not know how to obtain it.
+#hint: If you meant to add a submodule, use:
+#hint:
+#hint: 	git submodule add <url> tasks/lab02
+#hint:
+#hint: If you added this path by mistake, you can remove it from the
+#hint: index with:
+#hint:
+#hint: 	git rm --cached tasks/lab02
+#hint:
+#hint: See "git help submodule" for more information.
+#hint: Disable this message with "git config set advice.addEmbeddedRepo false"
+
 git commit -m "added sources"
+
+#[master 1755eea] added sources
+# 9 files changed, 241 insertions(+), 2 deletions(-)
+# create mode 100644 .DS_Store
+# create mode 100644 examples/example1.cpp
+# create mode 100644 examples/example2.cpp
+# create mode 100644 include/print.hpp
+# create mode 100644 reports/.DS_Store
+# create mode 100644 reports/lab02/REPORT.md
+# create mode 100644 sources/print.cpp
+# create mode 160000 tasks/lab02
+
 git push origin master
+
+#Перечисление объектов: 18, готово.
+#Подсчет объектов: 100% (18/18), готово.
+#При сжатии изменений используется до 8 потоков
+#Сжатие объектов: 100% (12/12), готово.
+#Запись объектов: 100% (16/16), 4.24 КиБ | 4.24 МиБ/с, готово.
+#Total 16 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+#remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+#To https://github.com/SLoMpi/lab02.git
+#   4d3dd1d..1755eea  master -> master
 ```
 
 ---
