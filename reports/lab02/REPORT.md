@@ -30,7 +30,7 @@ cd ${GITHUB_USERNAME}/workspace
 Для работы с GitHub через командную строку настраивается утилита `hub`:
 
 ```bash
-mkdir ~/.config
+mkdir -p ~/.config
 cat > ~/.config/hub <<EOF
 github.com:
 - user: ${GITHUB_USERNAME}
@@ -67,19 +67,10 @@ git init
 
 ```bash
 git remote add origin https://github.com/${GITHUB_USERNAME}/lab02.git
+touch README.md
 git add README.md
 git commit -m "added README.md"
--[master 4d3dd1d] added README.md
 git push origin master
-
-Перечисление объектов: 5, готово.
-Подсчет объектов: 100% (5/5), готово.
-При сжатии изменений используется до 8 потоков
-Сжатие объектов: 100% (2/2), готово.
-Запись объектов: 100% (3/3), 2.23 КиБ | 2.23 МиБ/с, готово.
-Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
-To https://github.com/SLoMpi/lab02.git
-   d25dc35..4d3dd1d  master -> master
 ```
 
 - Если репозиторий уже существует, команда `git remote add` вызовет ошибку, но это не мешает процессу.
